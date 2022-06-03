@@ -121,8 +121,8 @@ function startSTTTS() {
     recognition.onresult = (e) => {
         let transcript=e.results[0][0].transcript;
 
-        for(bannedword of bannedWords){
-            if(transcript.includes(bannedword))transcript="**屏蔽的句子**"
+        for(let bannedword of bannedWords){
+            if(bannedword&&transcript.includes(bannedword))transcript="**屏蔽的句子**"
         }
 
         lastSubtitles.push(transcript)
